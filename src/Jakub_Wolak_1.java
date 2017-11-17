@@ -11,7 +11,7 @@ public class Jakub_Wolak_1 {
         System.out.println("Podaj trzecią liczbę: ");
         int c = scanner.nextInt();
         int maxInt = 0; // w tę zmienną wpiszę największą liczbę
-        
+
         /*
         możliwe kombinacje dla róznych a, b, c:
         a b c ** !
