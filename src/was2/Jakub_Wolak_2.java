@@ -18,7 +18,7 @@ public class Jakub_Wolak_2 {
 
                 if (word1.length() >= 3 * word2.length() || word2.length() >= 3 * word1.length()) { // pierwsze może być dłuższe od drugiego lub na odwrót
                     counter++;  // zwiększ licznik
-                    if (flag == false) {    // jeśli jeszcze flaga nie została podniesiona
+                    if (flag == false) {    // jeśli flaga nie została jeszcze podniesiona
                         System.out.println(word1 + "\t" + word2); // wypisz parę
                         flag = true; // podnieś flagę - więcej par już się nie wypisze
                     }
