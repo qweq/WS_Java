@@ -23,20 +23,29 @@ public class Circle {
 
     public void modifyRadius(double delta) {
         radius += delta;
+        System.out.println("Zmieniono promień koła o " + delta);
     }
 
-    public boolean canFitSquareInside (Rectangle rect) {
-        if (rect.getEdgeA() == rect.getEdgeB()) {
-            return (radius == rect.getEdgeA() * Math.sqrt(2) * 0.5); // promień = połowa przekątnej kwadratu
-        }
-        return false;
+    // opisywanie koła na kwadracie -> średnica == przekątna
+    public void canFitSquareInside(Rectangle rect) {
+        if (rect.getEdgeA() == rect.getEdgeB()) { // czy jest kwadratem?
+            if (radius == rect.getEdgeA() * Math.sqrt(2) * 0.5) { // promień = połowa przekątnej kwadratu
+                System.out.println("Koło o promieniu " + radius + " można opisać na kwadracie o boku " + rect.getEdgeA());
+            } else {
+                System.out.println("Koła o promieniu " + radius + " nie można opisać na kwadracie o boku " + rect.getEdgeA());
+            }
+        } else System.out.println("Argument nie jest kwadratem.");
     }
 
-    public boolean canFitIntoSquare (Rectangle rect) {
+    // wpisywanie koła w kwadrat -> średnica == bok
+    public void canFitIntoSquare(Rectangle rect) {
         if (rect.getEdgeA() == rect.getEdgeB()) {
-            return (radius == rect.getEdgeA() * 0.5); // promień = połowa boku kwadratu
-        }
-        return false;
+            if (radius == rect.getEdgeA() * 0.5) { // promień = połowa boku kwadratu
+                System.out.println("W kwadrat o boku " + rect.getEdgeA() + " można wpisać koło o promieniu " + radius);
+            } else {
+                System.out.println("W kwadrat o boku " + rect.getEdgeA() + " nie można wpisać koła o promieniu " + radius);
+            }
+        } else System.out.println("Argument nie jest kwadratem");
     }
 
     public String toString() {

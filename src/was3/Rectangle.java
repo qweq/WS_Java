@@ -5,10 +5,21 @@ public class Rectangle {
     private double edgeB;
     private static int rectangles = 0;
 
-    Rectangle (double x, double y) {
+    Rectangle (double ab) { // kwadrat
         if (rectangles < 5) {
-            this.edgeA = x;
-            this.edgeB = y;
+            this.edgeA = ab;
+            this.edgeB = ab;
+            System.out.println("Stworzono kwadrat o boku " + this.edgeA);
+            rectangles++;
+        } else {
+            System.out.println("Istnieje przecież już 5 prostokątów. Ileż można?");
+        }
+    }
+
+    Rectangle (double a, double b) { // prostokąt
+        if (rectangles < 5) {
+            this.edgeA = a;
+            this.edgeB = b;
             System.out.println("Stworzono prostokąt o bokach " + this.edgeA + " oraz " + this.edgeB);
             rectangles++;
         } else {
@@ -23,6 +34,7 @@ public class Rectangle {
     public void modifyEdges(double deltaA, double deltaB) {
         this.edgeA += deltaA;
         this.edgeB += deltaB;
+        System.out.println("Zmieniono bok \"a\" o " + deltaA + " oraz bok \"b\" o " + deltaB);
     }
 
     public void fittingSquares(double edge) {
@@ -31,24 +43,25 @@ public class Rectangle {
         } else {
             int result = (int) (Math.floor(edgeA / edge) * Math.floor(edgeB / edge)); // zaokrąglamy w dół, bo liczymy całe kwadraty
 
-            String kwadrat; // żeby było gramatycznie poprawnie
+            // ---------- deklinacja w j. polskim :P -----------
+            String kwadrat;
             String moc;
             switch (result % 10) { // ostatnia cyfra
                 case 1:
-                    kwadrat = "kwadrat";
+                    kwadrat = "cały kwadrat";
                     moc = "może";
                     break;
                 case 2:
                 case 3:
                 case 4:
-                    kwadrat = "kwadraty";
+                    kwadrat = "całe kwadraty";
                     moc = "mogą";
                     break;
                 default:
-                    kwadrat = "kwadratów";
+                    kwadrat = "całych kwadratów";
                     moc = "może";
                     break;
-            }
+            } // -----------------------------------------------
 
             System.out.println("W tym prostokącie " + moc + " zmieścić się " + result + " " + kwadrat + " o boku " + edge);
         }
