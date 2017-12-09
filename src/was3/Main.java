@@ -1,36 +1,49 @@
 package was3;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
+        //Animal a = new Animal();
+        //System.out.println(a);
 
-        /*Punkt punkt = new Punkt(2);
-        Punkt punkt1 = new Punkt(4, 6);
+        Dog d = new Dog("Fred", 4, 7.0, Breed.GOLDEN);
+        System.out.println(d);
 
-        System.out.println(punkt.getX() + "\t" + punkt.getY());
-        System.out.println(punkt1.getX() + "\t" + punkt1.getY());*/
+        d.makeSound();
 
-        Dog regis = new Dog("Regis", 3, Breed.GOLDEN);
-        System.out.println(regis);
-        regis.setName("Lama");
-        System.out.println(regis);
+        /*List<Animal> animals = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            if (i % 2 == 0) {
+                animals.add(new Dog("pies"+i, i, (double)i, Breed.GOLDEN));
+            }
+            else {
+                animals.add(new Cat("kot"+i,i,(double)i));
+            }
+        }*/
 
-        regis.Sit();
-        regis.learnSit();
-        regis.Sit();
 
-        System.out.println(regis.Fetch());
-        regis.learnFetch();
-        System.out.println(regis.Fetch());
 
-        Dog frugo = new Dog("Frugo", 1, Breed.GOLDEN);
-        Dog mopsik = new Dog("Sliniak", 10, Breed.PUG);
-        //System.out.println("Istnieje tyle psów: " + Dog.getDogsCounter());
-        System.out.println("Istnieje tyle psów: " + Dog.getDogsCollection().size());
+        System.out.println(Animal.getAnimalList().size());
 
-        for (Dog d : Dog.getDogsCollection()) {
-            if (d.getBreed() == Breed.GOLDEN) System.out.println("Znaleziono goldena " + d.getName());
-            if (d.getBreed() == Breed.PUG) System.out.println("Znaleziono mopsa " + d.getName());
-            if (d.getBreed() == Breed.DACHSHUND) System.out.println("Znaleziono jamnika " + d.getName());
+        for (Animal a:Animal.getAnimalList()) {
+            if (a instanceof Dog) {
+                System.out.println("Jestem psem");
+            }
         }
+
+        CatContainer catContainer = new CatContainer();
+        catContainer.addCat("Mruczek", 3, 5.4);
+
+        for (int i = 0; i <= 30; i++) {
+            if (i % 2 == 0) {
+                catContainer.addCat("kot" + i, (int)(Math.random() * 11 - 3), (double)(Math.random() * 15 - 5));
+            } else {
+                Dog b = new Dog("pies" + i, i, (double)i, Breed.GOLDEN);
+            }
+        }
+
+        //System.out.println(CatContainer.getCatList());
     }
 }

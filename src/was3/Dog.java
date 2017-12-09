@@ -3,27 +3,28 @@ package was3;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dog {
-    private String name;
-    private int age;
+public class Dog extends Animal {
     private Breed breed;
     private boolean canSit;
     private boolean canFetch;
     private static int dogsCounter = 0; // "static" - tyczy się całej klasy Dog.java a nie konkretnego obiektu
     private static List<Dog> dogsCollection = new ArrayList<>();
 
-    Dog(String name, int age, Breed breed) {
-        this.name = name;
-        this.age = age;
+    Dog(String name, int age, double weight, Breed breed) {
+        super(name, age, weight);
         this.breed = breed;
         this.canSit = false;
         this.canFetch = false;
-        System.out.println("Narodził się " + this.name + ".");
         dogsCounter++;
         dogsCollection.add(this);
     }
 
-    public void Sit() {
+    @Override
+    public void makeSound() {
+        System.out.println(super.getName() + ": hau");
+    }
+
+    /*public void Sit() {
         if (canSit) {
             System.out.println(this.name + " usiadł.");
         } else {
@@ -46,8 +47,8 @@ public class Dog {
     public void learnFetch() {
         this.canFetch = true;
         System.out.println("Pies nauczył się aportować.");
-    }
-
+    }*/
+/*
     public String getName() {
         return name;
     }
@@ -62,7 +63,7 @@ public class Dog {
 
     public void setAge(int age) {
         this.age = age;
-    }
+    }*/
 
     public Breed getBreed() {
         return breed;
@@ -81,6 +82,6 @@ public class Dog {
     }
 
     public String toString() {
-        return this.breed + " imieniem " + this.name + " ma " + this.age + " lat.";
+        return this.breed + " imieniem " + super.getName() + " ma " + super.getAge() + " lat.";
     }
 }
